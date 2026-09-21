@@ -32,10 +32,26 @@ class Array{
             
         }
         int get_element(int index){
-            return A[index];
+            if(index > 0 && index < length){
+                return A[index];
+            }
         }
         void set_element(int index, int num){
-            A[index] = num;
+            if(index > 0 && index < length){
+                A[index] = num;
+            }
+            
+        }
+
+        int get_max(){
+            int max = 0;
+            for (int i = 0; i < length; i++)
+            {
+                if(A[i] > max){
+                    max = A[i];
+                }
+            }
+            return max;   
         }
 
 
