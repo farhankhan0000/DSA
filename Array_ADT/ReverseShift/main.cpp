@@ -40,13 +40,34 @@ class Array{
                 A[length-i-1] = temp;
             }
         }
+
+        void reverse2(Array& arr2){
+            int j = length - 1;
+            for (int i = 0; i < length; i++)
+            {
+                arr2.A[i] = A[j];
+                j--;
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                A[i] = arr2.A[i];
+            }  
+        }
 };
 
+
+
 int main(){
-    Array arr(10);
-    arr.initialize();
-    arr.show();
+    Array arr1(10);
+    Array arr2(10);
+    arr1.initialize();
     cout<<"\n";
-    arr.reverse();
-    arr.show();
+    arr2.initialize();
+    arr1.show();
+    cout<<"\n";
+    arr2.show();
+    arr1.reverse2(arr2);
+    cout<<"\n";
+    arr1.show();
 }
