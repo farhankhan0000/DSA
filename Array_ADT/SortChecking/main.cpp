@@ -26,13 +26,9 @@ class Array{
 
         void checkSort(){
             bool sorted = true;
-            int lowest = A[0];
             for (int i = 0; i < length; i++)
             {
-                if(lowest < A[i+1]){
-                    lowest = A[i+1];
-                }
-                else{
+                if(A[i] > A[i+1]){
                     sorted = false;
                 }
             }
