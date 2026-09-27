@@ -59,6 +59,24 @@ class Array{
             length++;
         }
 
+        void insertInSortedDesc(int number){
+            for (int i = 0; i < length; i++)
+            {
+                if(number > A[i]){
+                    for (int j = length; j > i; j--)
+                    {
+                        A[j] = A[j-1];
+                    }
+                    A[i] = number;
+                    length++;
+                    return;
+                }
+                
+            }
+            A[0] = number;
+            length++;
+        }
+
         void show(){
             for (int i = 0; i < length; i++)
             {
@@ -72,7 +90,7 @@ int main(){
     Array arr(10);
     arr.setArray(5);
     arr.checkSort();
-    arr.insertInSortedAsc(10);
+    arr.insertInSortedDesc(10);
     arr.show();
     return 0;
 }
