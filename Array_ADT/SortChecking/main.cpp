@@ -40,6 +40,21 @@ class Array{
             }
             
         }
+
+        void insertInSortedAsc(int number){
+            for (int i = 0; i < length; i++)
+            {
+                if(number < A[i]){
+                    A[i] = number;
+                    int j = length - 1;
+                    while(j > i){
+                        A[j] = A[j--];
+                    }
+                    break;
+                }
+            }
+            
+        }
 };
 
 int main(){
