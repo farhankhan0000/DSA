@@ -41,6 +41,17 @@ class Array{
             
         }
 
+        void insertSorted(int num){
+            int i = length - 1;
+            while (A[i] > num)
+            {
+                A[i+1] = A[i];
+                i--;
+            }
+            A[i+1] = num;
+            length++;
+        }
+
         void insertInSortedAsc(int number){
             for (int i = 0; i < length; i++)
             {
@@ -77,6 +88,28 @@ class Array{
             length++;
         }
 
+        void swap(int a, int b){
+            int temp = A[a];
+            A[a] = A[b];
+            A[b] = temp;
+        }
+
+        void negativeLeftPositiveRight(){
+            int i = 0;
+            int j = length-1;
+            while(i < j){
+                while(A[i] < 0 && i < j){
+                    i++;
+                }
+                while(A[j] > 0 && i < j){
+                    j--;
+                }
+                if(i < j){
+                    swap(i,j);
+                }
+            }
+        }
+
         void show(){
             for (int i = 0; i < length; i++)
             {
@@ -89,8 +122,9 @@ class Array{
 int main(){
     Array arr(10);
     arr.setArray(5);
-    arr.checkSort();
-    arr.insertInSortedDesc(10);
+    // arr.checkSort();
+    // arr.insertInSortedDesc(10);
+    arr.negativeLeftPositiveRight();
     arr.show();
     return 0;
 }
