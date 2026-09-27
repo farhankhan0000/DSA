@@ -26,7 +26,7 @@ class Array{
 
         void checkSort(){
             bool sorted = true;
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < length-1; i++)
             {
                 if(A[i] > A[i+1]){
                     sorted = false;
@@ -45,13 +45,24 @@ class Array{
             for (int i = 0; i < length; i++)
             {
                 if(number < A[i]){
-                    A[i] = number;
-                    int j = length - 1;
-                    while(j > i){
-                        A[j] = A[j--];
+                    for (int j = length; j > i; j--)
+                    {
+                        A[j] = A[j-1];
                     }
-                    break;
+                    A[i] = number;
+                    length++;
+                    return;
                 }
+                
+            }
+            A[length] = number;
+            length++;
+        }
+
+        void show(){
+            for (int i = 0; i < length; i++)
+            {
+                cout<<A[i]<<"    ";
             }
             
         }
@@ -61,5 +72,7 @@ int main(){
     Array arr(10);
     arr.setArray(5);
     arr.checkSort();
+    arr.insertInSortedAsc(10);
+    arr.show();
     return 0;
 }
