@@ -30,7 +30,7 @@ class Array{
             int i = 0;
             int j = 0;
             int k = 0;
-            while(i < length && j < length){
+            while(i < length && j < arr2.length){
                 if(A[i] < arr2.A[j]){
                     arr3.A[k] = A[i];
                     k++;
@@ -44,8 +44,10 @@ class Array{
                     arr3_lenght++;
                 }
                 else{
+                    arr3.A[k] = A[i];
                     i++;
                     j++;
+                    k++;
                 }
             }
 
