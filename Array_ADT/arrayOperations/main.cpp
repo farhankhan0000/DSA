@@ -106,6 +106,28 @@ class Array{
             
         }
 
+        void intersectionSorted(Array &arr2, Array &arr3){
+            int i = 0;
+            int j = 0;
+            int k = 0;
+
+            while(i < length && j < length){
+                if(A[i] < arr2.A[j]){
+                    i++;
+                }
+                else if(arr2.A[j] < A[i]){
+                    j++;
+                }
+                else{
+                    arr3.A[k] = A[i];
+                    i++;
+                    j++;
+                    k++;
+                }
+            }
+            arr3.length = k;
+        }
+
         void show(){
             for (int i = 0; i < length; i++)
             {
@@ -124,7 +146,7 @@ int main(){
     arr2.initialize(5);
     // arr1.unionSorted(arr2, arr3);
 
-    arr1.intersectionUnsorted(arr2,arr3);
+    arr1.intersectionSorted(arr2,arr3);
 
     arr3.show();
 
