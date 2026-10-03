@@ -128,6 +128,29 @@ class Array{
             arr3.length = k;
         }
 
+        void differenceUnsorted(Array &arr2, Array &arr3){
+            int k = 0;
+            for (int i = 0; i < length; i++)
+            {
+                bool isPresent = false;
+                for (int j = 0; j < arr2.length; j++)
+                {
+                    if(A[i] == arr2.A[j]){
+                        isPresent = true;
+                        break;
+                    }
+                    
+                }
+
+                if (!isPresent){
+                    arr3.A[k] = A[i];
+                    k++;
+                }
+                
+            }
+            arr3.length = k;
+        }
+
         void show(){
             for (int i = 0; i < length; i++)
             {
@@ -145,9 +168,9 @@ int main(){
     arr1.initialize(5);
     arr2.initialize(5);
     // arr1.unionSorted(arr2, arr3);
+    // arr1.intersectionSorted(arr2,arr3);
 
-    arr1.intersectionSorted(arr2,arr3);
-
+    arr1.differenceUnsorted(arr2, arr3);
     arr3.show();
 
     return 0;
