@@ -6,19 +6,19 @@ class Array{
     private:
         int* A;
         int size;
-        int lenght;
+        int length;
 
     public:
         Array(int size){
             this->size = size;
             A = new int[size];
-            lenght = 0;
+            length = 0;
         }
 
         void initialize(int length){
-            this->lenght = lenght;
+            this->length = length;
             cout<<"Enter the elements in Array\n ";
-            for (int i = 0; i < lenght; i++)
+            for (int i = 0; i < length; i++)
             {
                 cin>>A[i];
             }  
@@ -26,15 +26,15 @@ class Array{
 
         void unionUnsorted(Array &arr2, Array &arr3){
             int k = 0;
-            bool isPresent = false;
-            for (int i = 0; i < lenght; i++)
+            for (int i = 0; i < length; i++)
             {
                 arr3.A[k] = A[i];
                 k++;
             }
-            for (int j = 0; j < lenght; j++)
+            for (int j = 0; j < length; j++)
             {
-                for (int i = 0; i < lenght; i++)
+                bool isPresent = false;
+                for (int i = 0; i < length; i++)
                 {
                     if(arr2.A[j] == A[i]){
                         isPresent = true;
@@ -47,6 +47,29 @@ class Array{
                 }
                 
             }
-            arr3.lenght = k+1;
+            arr3.length = k;
+        }
+
+        void show(){
+            for (int i = 0; i < length; i++)
+            {
+                cout<<A[i]<<"  ";
+            }
         }
 };
+
+
+int main(){
+    Array arr1(5);
+    Array arr2(5);
+    Array arr3(10);
+
+    arr1.initialize(5);
+    arr2.initialize(5);
+    
+    arr1.unionUnsorted(arr2, arr3);
+
+    arr3.show();
+
+    return 0;
+}
