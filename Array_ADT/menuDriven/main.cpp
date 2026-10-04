@@ -69,6 +69,39 @@ class Array{
             }
         }
 
+        void linear_search(int num){
+            int index = 0;
+            for (int i = 0; i < length; i++)
+            {
+                if(num == A[i]){
+                    index = i;
+                    break;
+                }
+            }
+            cout<<index<<"\n";
+            
+        }
+
+        void binary_search(int num){
+            int min = 0;
+            int max = length-1;
+            int middle = (min+max)/2;
+            while(min <= max){
+                if(A[middle] == num){
+                    cout<<middle<<"\n";
+                    break;
+                }
+                else if(A[middle] < num){
+                    min = middle+1;
+                    middle = (min+max)/2;
+                }
+                else{
+                    max = middle-1;
+                    middle = (min+max)/2;
+                }
+            }
+        }
+
         void initialize(int length){
             this->length = length;
             cout<<"Enter the elements in Array\n ";
@@ -248,10 +281,9 @@ int main(){
     // arr1.unionSorted(arr2, arr3);
     // arr1.intersectionSorted(arr2,arr3);
     // arr1.differenceUnsorted(arr2, arr3);
-
-    arr1.delete_element(3);
+    // arr1.delete_element(3);
     arr1.show();
-    // arr3.show();
+    arr1.binary_search(20);
 
     return 0;
 }
