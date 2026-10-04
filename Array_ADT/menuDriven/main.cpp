@@ -58,6 +58,17 @@ class Array{
             }
         }
 
+        void delete_element(int index){
+            if(index >= 0 && index < length){
+                for (int i = index; i < length; i++)
+                {
+                    A[i] = A[i+1];
+                }
+                length--;
+                
+            }
+        }
+
         void initialize(int length){
             this->length = length;
             cout<<"Enter the elements in Array\n ";
@@ -238,7 +249,7 @@ int main(){
     // arr1.intersectionSorted(arr2,arr3);
     // arr1.differenceUnsorted(arr2, arr3);
 
-    arr1.insertSorted(22);
+    arr1.delete_element(3);
     arr1.show();
     // arr3.show();
 
