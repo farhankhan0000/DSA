@@ -16,7 +16,33 @@ class Array{
         }
 
         void insertUnsorted(int num, int index){
-            if(index >= 0 && index < size){
+            if(index >= 0 && length < size && index <= length){
+                if(length == 0 || index == length){
+                    A[index] = num;
+                    length++;
+                }
+                else{
+                    for (int i = length; i > index; i--)
+                    {
+                        A[i] = A[i-1];
+                    }
+                    A[index] = num;
+                    length++;
+                }
+            }
+        }
+
+        void insertSorted(int num){
+            int index = 0;
+            int i = 0;
+            while(i < length){
+                if(num < A[i]){
+                    break;
+                }
+                i++;
+            }
+            index = i;
+            if(length < size && index <= length){
                 if(length == 0 || index == length){
                     A[index] = num;
                     length++;
@@ -202,17 +228,19 @@ class Array{
 
 
 int main(){
-    Array arr1(5);
+    Array arr1(10);
     Array arr2(5);
     Array arr3(10);
 
     arr1.initialize(5);
-    arr2.initialize(5);
+    // arr2.initialize(5);
     // arr1.unionSorted(arr2, arr3);
     // arr1.intersectionSorted(arr2,arr3);
+    // arr1.differenceUnsorted(arr2, arr3);
 
-    arr1.differenceUnsorted(arr2, arr3);
-    arr3.show();
+    arr1.insertSorted(22);
+    arr1.show();
+    // arr3.show();
 
     return 0;
 }
