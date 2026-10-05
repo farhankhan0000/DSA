@@ -380,5 +380,68 @@ int main(){
     Array arr2(5);
     Array arr3(10);
 
+    int i;
+    while(i < 20){
+        cout<<"Choose the number according to taks: \n1.Insert\n2.Delete\n3.Reverse\n4.Search\n5.Merge\n6.Difference\n7.Initialize.\n8.Show\nGreater than 20 if you want to exit";
+        cin>>i;
+        if(i == 1){
+            int n;
+            cout<<"Enter the number you want to insert ";
+            cin>>n;
+            arr1.insertSorted(n);
+        }
+        else if(i == 2){
+            int index;
+            cout<<"Enter the index you want to delete ";
+            cin>>index;
+            arr1.delete_element(index);
+        }
+        else if(i == 3){
+            arr1.reverse();
+        }
+        else if(i == 4){
+            int num;
+            cout<<"Enter the number you want to search ";
+            cin>>num;
+            arr1.linear_search(num);
+        }
+        else if(i == 5){
+            arr1.mergeArray(arr2, arr3);
+        }
+        else if(i == 6){
+            arr1.differenceSorted(arr2, arr3);
+        }
+        else if(i == 7){
+            int num;
+            cout<<"Enter 1 for arr1\nEnter 2 for arr2\nEnter 3 for arr3";
+            cin>>num;
+            if(i == 1){
+                arr1.initialize(5);
+            }
+            else if(i == 2){
+                arr2.initialize(5);
+            }
+            else if(i == 3){
+                arr3.initialize(10);
+            }
+        }
+        else if(i == 8){
+            int num;
+            cout<<"Enter 1 for arr1\nEnter 2 for arr2\nEnter 3 for arr3";
+            cin>>num;
+            if(i == 1){
+                arr1.show();
+            }
+            else if(i == 2){
+                arr2.show();
+            }
+            else if(i == 3){
+                arr3.show();
+            }
+        }
+        else if(i > 20){
+            break;
+        }
+    }
     return 0;
 }
