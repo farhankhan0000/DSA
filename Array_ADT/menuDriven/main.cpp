@@ -15,6 +15,110 @@ class Array{
             length = 0;
         }
 
+        int get_element(int index){
+            if(index > 0 && index < length){
+                return A[index];
+            }
+        }
+        void set_element(int index, int num){
+            if(index > 0 && index < length){
+                A[index] = num;
+            }
+            
+        }
+
+        int get_max(){
+            int max = 0;
+            for (int i = 0; i < length; i++)
+            {
+                if(A[i] > max){
+                    max = A[i];
+                }
+            }
+            return max;   
+        }
+
+        void reverse(){
+            int temp = 0;
+            for (int i = 0; i < length/2; i++)
+            {
+                temp = A[i];
+                A[i] = A[length-i-1];
+                A[length-i-1] = temp;
+            }
+        }
+
+        void checkSort(){
+            bool sorted = true;
+            for (int i = 0; i < length-1; i++)
+            {
+                if(A[i] > A[i+1]){
+                    sorted = false;
+                }
+            }
+            if(sorted){
+                cout<<"Sorted";
+            }
+            else{
+                cout<<"Not sorted";
+            }
+            
+        }
+
+        void insertSorted(int num){
+            int i = length - 1;
+            while (A[i] > num)
+            {
+                A[i+1] = A[i];
+                i--;
+            }
+            A[i+1] = num;
+            length++;
+        }
+
+        void mergeArray(Array &arr2, Array &arr3){
+            int arr3_lenght = 0;
+            int i = 0;
+            int j = 0;
+            int k = 0;
+            while(i < length && j < arr2.length){
+                if(A[i] < arr2.A[j]){
+                    arr3.A[k] = A[i];
+                    k++;
+                    i++;
+                    arr3_lenght++;
+                }
+                else if(arr2.A[j] < A[i]){
+                    arr3.A[k] = arr2.A[j];
+                    k++;
+                    j++;
+                    arr3_lenght++;
+                }
+                else{
+                    arr3.A[k] = A[i];
+                    i++;
+                    j++;
+                    k++;
+                }
+            }
+
+            while(i < length){
+                arr3.A[k] = A[i];
+                k++;
+                i++;
+                arr3_lenght++;
+            }
+
+            while(j < length){
+                arr3.A[k] = arr2.A[j];
+                j++;
+                k++;
+                arr3_lenght++;
+            }
+            arr3.length = arr3_lenght;
+        }
+
+
         void insertUnsorted(int num, int index){
             if(index >= 0 && length < size && index <= length){
                 if(length == 0 || index == length){
@@ -272,18 +376,9 @@ class Array{
 
 
 int main(){
-    Array arr1(10);
+    Array arr1(5);
     Array arr2(5);
     Array arr3(10);
-
-    arr1.initialize(5);
-    // arr2.initialize(5);
-    // arr1.unionSorted(arr2, arr3);
-    // arr1.intersectionSorted(arr2,arr3);
-    // arr1.differenceUnsorted(arr2, arr3);
-    // arr1.delete_element(3);
-    arr1.show();
-    arr1.binary_search(20);
 
     return 0;
 }
