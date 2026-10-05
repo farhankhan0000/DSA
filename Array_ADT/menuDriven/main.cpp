@@ -136,31 +136,6 @@ class Array{
             }
         }
 
-        void insertSorted(int num){
-            int index = 0;
-            int i = 0;
-            while(i < length){
-                if(num < A[i]){
-                    break;
-                }
-                i++;
-            }
-            index = i;
-            if(length < size && index <= length){
-                if(length == 0 || index == length){
-                    A[index] = num;
-                    length++;
-                }
-                else{
-                    for (int i = length; i > index; i--)
-                    {
-                        A[i] = A[i-1];
-                    }
-                    A[index] = num;
-                    length++;
-                }
-            }
-        }
 
         void delete_element(int index){
             if(index >= 0 && index < length){
@@ -415,13 +390,13 @@ int main(){
             int num;
             cout<<"Enter 1 for arr1\nEnter 2 for arr2\nEnter 3 for arr3";
             cin>>num;
-            if(i == 1){
+            if(num == 1){
                 arr1.initialize(5);
             }
-            else if(i == 2){
+            else if(num == 2){
                 arr2.initialize(5);
             }
-            else if(i == 3){
+            else if(num == 3){
                 arr3.initialize(10);
             }
         }
@@ -429,13 +404,13 @@ int main(){
             int num;
             cout<<"Enter 1 for arr1\nEnter 2 for arr2\nEnter 3 for arr3";
             cin>>num;
-            if(i == 1){
+            if(num == 1){
                 arr1.show();
             }
-            else if(i == 2){
+            else if(num == 2){
                 arr2.show();
             }
-            else if(i == 3){
+            else if(num == 3){
                 arr3.show();
             }
         }
