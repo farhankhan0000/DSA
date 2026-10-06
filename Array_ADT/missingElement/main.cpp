@@ -49,6 +49,21 @@ class Array{
             
         }
 
+        void find_multiple_missing_element(){
+            int diff = A[0] - 0;
+            int missing_element;
+            for (int i = 0; i < length; i++)
+            {
+                if(A[i] - i != diff){
+                    while(diff < A[i] - i){
+                        missing_element = i+diff;
+                        cout<<missing_element<<"  ";
+                        diff++;
+                    }
+                }
+            }
+        }
+
         void display(){
             for (int i = 0; i < length; i++)
             {
@@ -62,5 +77,5 @@ int main(){
     Array arr1;
     arr1.initialize(10);
     arr1.display();
-    arr1.find_missing_element();
+    arr1.find_multiple_missing_element();
 }
