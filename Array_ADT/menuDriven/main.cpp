@@ -15,6 +15,10 @@ class Array{
             length = 0;
         }
 
+        ~Array(){
+            delete []A;
+        }
+
         int get_element(int index){
             if(index > 0 && index < length){
                 return A[index];
