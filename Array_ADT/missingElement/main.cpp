@@ -64,6 +64,25 @@ class Array{
             }
         }
 
+        void find_missing_element_unsorted(Array &arr1){
+            for (int i = 0; i < length; i++)
+            {
+                arr1.A[A[i]]++;
+            }
+
+            cout<<"Missing elements are\n";
+
+            for (int i = 1; i < arr1.length; i++)
+            {
+                if(arr1.A[i]  == 0){
+                    cout<<i<<"  ";
+                    
+                }
+            }
+            
+            
+        }
+
         void display(){
             for (int i = 0; i < length; i++)
             {
@@ -75,7 +94,10 @@ class Array{
 
 int main(){
     Array arr1;
+    Array arr2(13);
+    arr2.initialize(13);
     arr1.initialize(10);
     arr1.display();
-    arr1.find_multiple_missing_element();
+    arr2.display();
+    arr1.find_missing_element_unsorted(arr2);
 }
