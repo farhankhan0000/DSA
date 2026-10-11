@@ -37,16 +37,14 @@ class Array{
         }
 
         void finding_duplicate_with_counts(){
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < length-1; i++)
             {
                 if(A[i] == A[i+1]){
-                    int count = 1;
                     int j = i + 1;
                     while(A[i] == A[j]){
                         j++;
-                        count++;
                     }
-                    cout<<A[i]<<"appeared "<<count<<" times in the array \n";
+                    cout<<A[i]<<"appeared "<<j-1<<" times in the array \n";
                     i = j - 1;
                 }
             }
