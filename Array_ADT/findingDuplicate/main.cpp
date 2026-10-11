@@ -8,9 +8,14 @@ class Array{
         int length;
 
     public:
-        Array(int size){
+        Array(int size, bool zeroInitialize){
             this->size = size;
-            A = new int[size];
+            if(zeroInitialize){
+                A = new int[size]();
+            }
+            else{
+                A = new int[size];
+            }
             length = 0;
         }
 
@@ -44,8 +49,23 @@ class Array{
                     while(A[i] == A[j]){
                         j++;
                     }
-                    cout<<A[i]<<"appeared "<<j-1<<" times in the array \n";
+                    cout<<A[i]<<"appeared "<<j-i<<" times in the array \n";
                     i = j - 1;
+                }
+            }
+            
+        }
+
+        void hash_finding_duplicate(Array &arr){
+            for (int i = 0; i < length; i++)
+            {
+                arr.A[A[i]]++;
+            }
+            int max = A[length-1];
+            for (int i = 0; i <= max; i++)
+            {
+                if(arr.A[i] > 1){
+                    cout<<i<<" appeared "<<arr.A[i]<<" times \n";
                 }
             }
             
@@ -54,9 +74,12 @@ class Array{
 };
 
 int main(){
-    Array arr1(10);
+    Array arr1(10, false);
+    Array arr2(21, true);
     arr1.initialize(10);
-    arr1.finding_duplicates();
-    arr1.finding_duplicate_with_counts();
+    // arr1.finding_duplicates();
+    // arr1.finding_duplicate_with_counts();
+    arr1.hash_finding_duplicate(arr2);
+
     return 0;
 }
