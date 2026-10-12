@@ -94,6 +94,27 @@ class Array{
             
         }
         
+        void hash_finding_duplicate_unsorted(Array &arr){
+            int max = 0;
+            for (int i = 0; i < length; i++){
+                if(A[i] > max){
+                    max = A[i];
+                }
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                arr.A[A[i]]++;
+            }
+
+            for (int i = 0; i <= max; i++)
+            {
+                if(arr.A[i] > 1){
+                    cout<<i<<" appeared "<<arr.A[i]<<" times \n";
+                }
+            }
+            
+        }
 };
 
 int main(){
@@ -103,6 +124,6 @@ int main(){
     // arr1.finding_duplicate_sorted();
     // arr1.finding_duplicate_with_count_sorted();
     // arr1.hash_finding_duplicate_sorted(arr2);
-    arr1.finding_duplicate_unsorted();
+    arr1.hash_finding_duplicate_unsorted(arr2);
     return 0;
 }
