@@ -51,10 +51,13 @@ class Array{
         void hash_find_two_element_sum(Array &arr, int k){
             for (int i = 0; i < length; i++)
             {
-                if(arr.A[k - A[i]] != 0){
+                int completment = k - A[i];
+                if(k - A[i] >= 0){
+                    if(arr.A[k - A[i]] != 0){
                     cout<<A[i]<<" + "<<k-A[i]<<" = "<<k<<endl;
                 }
                 arr.A[A[i]]++;
+                }
             }
             
         }
@@ -65,7 +68,8 @@ class Array{
 
 int main(){
     Array arr(10, false);
+    Array arr1(17, true);
     arr.initialize(10);
-    arr.find_two_element_sum(10);
+    arr.hash_find_two_element_sum(arr1, 10);
     return 0;
 }
