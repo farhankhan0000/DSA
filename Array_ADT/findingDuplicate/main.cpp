@@ -29,7 +29,7 @@ class Array{
             
         }
 
-        void finding_duplicates(){
+        void finding_duplicate_sorted(){
             int duplicate = 0;
             for (int i = 0; i < length; i++)
             {
@@ -41,7 +41,7 @@ class Array{
             
         }
 
-        void finding_duplicate_with_counts(){
+        void finding_duplicate_with_count_sorted(){
             for (int i = 0; i < length-1; i++)
             {
                 if(A[i] == A[i+1]){
@@ -56,7 +56,7 @@ class Array{
             
         }
 
-        void hash_finding_duplicate(Array &arr){
+        void hash_finding_duplicate_sorted(Array &arr){
             for (int i = 0; i < length; i++)
             {
                 arr.A[A[i]]++;
@@ -70,6 +70,29 @@ class Array{
             }
             
         }
+
+        void finding_duplicate_unsorted(){
+            for (int i = 0; i < length; i++)
+            {
+                int count = 1;
+                if(A[i] != -1){
+                    for (int j = i+1; j < length; j++)
+                {
+                        if(A[i] == A[j]){
+                        count++;
+                        A[j] = -1;
+                    }
+                    
+                }
+                }
+
+                if(count > 1){
+                        cout<<A[i]<<" appeared "<<count<<" times.\n";
+                    }
+                
+            }
+            
+        }
         
 };
 
@@ -77,9 +100,9 @@ int main(){
     Array arr1(10, false);
     Array arr2(21, true);
     arr1.initialize(10);
-    // arr1.finding_duplicates();
-    // arr1.finding_duplicate_with_counts();
-    arr1.hash_finding_duplicate(arr2);
-
+    // arr1.finding_duplicate_sorted();
+    // arr1.finding_duplicate_with_count_sorted();
+    // arr1.hash_finding_duplicate_sorted(arr2);
+    arr1.finding_duplicate_unsorted();
     return 0;
 }
