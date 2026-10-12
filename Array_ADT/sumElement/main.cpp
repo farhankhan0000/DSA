@@ -48,6 +48,17 @@ class Array{
             
         }
 
+        void hash_find_two_element_sum(Array &arr, int k){
+            for (int i = 0; i < length; i++)
+            {
+                if(arr.A[k - A[i]] != 0){
+                    cout<<A[i]<<" + "<<k-A[i]<<" = "<<k<<endl;
+                }
+                arr.A[A[i]]++;
+            }
+            
+        }
+
 
 
 };
