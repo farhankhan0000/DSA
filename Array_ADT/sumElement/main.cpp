@@ -63,9 +63,6 @@ class Array{
                     i++;
                     j--;
                 }
-                else if(i == j){
-                    break;
-                }
             }
             
         }
