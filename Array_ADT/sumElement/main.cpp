@@ -48,6 +48,28 @@ class Array{
             
         }
 
+        void find_two_sorted_element_sum(int k ){
+            int i = 0;
+            int j = length - 1;
+            while(i < j){
+                if(A[i] + A[j] > k) {
+                    j--;
+                }
+                else if(A[i] + A[j] < k){
+                    i++;
+                }
+                else if(A[i] + A[j] ==k){
+                    cout<<A[i]<<"+"<<A[j]<<"="<<k;
+                    i++;
+                    j--;
+                }
+                else if(i == j){
+                    break;
+                }
+            }
+            
+        }
+
         void hash_find_two_element_sum(Array &arr, int k){
             for (int i = 0; i < length; i++)
             {
@@ -68,8 +90,7 @@ class Array{
 
 int main(){
     Array arr(10, false);
-    Array arr1(17, true);
     arr.initialize(10);
-    arr.hash_find_two_element_sum(arr1, 10);
+    arr.find_two_sorted_element_sum(10);
     return 0;
 }
