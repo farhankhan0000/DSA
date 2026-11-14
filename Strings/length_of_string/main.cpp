@@ -10,22 +10,27 @@ class String{
     public:
         String(int size){
             this->size = size;
+            length = 0;
             a = new char[size]; 
+            a[0] = '\0';
         }
 
-        void initialize(){
-            
-        }
-
-        void find_length(){
+        void initialize(const char* str){
             int i;
-            for(i=0; a[i] != '\0'; i++){
-
+            for(i = 0; str[i] != '\0'; i++){
+                a[i] = str[i];
             }
-            cout<<"i";
+            a[i] = '\0';
+            length = i;
+        }
+
+        int find_length(){
+            return length;
         }
 };
 
 int main(){
     String s(15);
+    s.initialize("Hello");
+    cout<<s.find_length()<<endl;
 }
