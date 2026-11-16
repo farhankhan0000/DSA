@@ -17,12 +17,13 @@ class String{
 
         void initialize(const char* str){
             int i = 0;
-            while (str[i] != '\0')
+            while (str[i] != '\0' && i < size-1)
             {
                 A[i] = str[i];
                 i++;
             }
-            i = length;
+            length = i;
+            A[i] = '\0';
         }
 
         void consonant_vowel_count(){
@@ -30,8 +31,8 @@ class String{
             int vow = 0;
             for (int i = 0; i < length; i++)
             {
-                if(A[i] == 'a', A[i] == 'A', A[i] == 'e', A[i] == 'E', A[i] == 'i', A[i] == 'I',
-                A[i] == 'o', A[i] == 'O', A[i] == 'u', A[i] == 'U'){
+                if(A[i] == 'a' || A[i] == 'A' || A[i] == 'e' || A[i] == 'E' || A[i] == 'i' || A[i] == 'I' ||
+                A[i] == 'o' || A[i] == 'O' || A[i] == 'u' || A[i] == 'U'){
                     vow++;
                 }
                 else if((A[i] >= 97 && A[i] <= 122) || A[i] >= 65 && A[i] <= 90){
@@ -40,6 +41,10 @@ class String{
             }
             cout<<"no of vowels = "<<vow<<" no of consonants "<<cons<<endl;
             
+        }
+
+        ~String(){
+            delete []A;
         }
 };
 
