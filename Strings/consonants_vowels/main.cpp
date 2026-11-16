@@ -47,7 +47,7 @@ class String{
             int gaps = 0;
             for (int i = 0; i < length; i++)
             {
-                if(A[i] == ' '){
+                if(A[i] == ' ' && A[i-1] != ' '){
                    gaps++; 
                 }
 
