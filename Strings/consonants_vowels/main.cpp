@@ -43,12 +43,29 @@ class String{
             
         }
 
+        int find_words_in_string(){
+            int gaps = 0;
+            for (int i = 0; i < length; i++)
+            {
+                if(A[i] == ' '){
+                   gaps++; 
+                }
+
+            }
+            int words = gaps+1;
+            return words;
+            
+        }
+
         ~String(){
             delete []A;
         }
+
 };
 
 int main(){
     String s(30);
     s.initialize("How are you Doing");
+    s.consonant_vowel_count();
+    cout<<"No of words in a string "<<s.find_words_in_string()<<endl;
 }
