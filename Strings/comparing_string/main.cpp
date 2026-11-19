@@ -37,24 +37,45 @@ class String{
         }
 
         void compare(const char* str){
-            int i = 0;
-            int j = 0;
-            string what;
-            while(a[i] != '\0' || str[j] != '\0'){
-                if(a[i] == str[j]){
-                    what = "equal";
+            int i;
+            int j;
+            for(i=0,j=0; a[i] != '\0' && str[j] != '\0'; i++,j++){
+                char c1 = a[i];
+                char c2 = str[j];
+                if(c1 >= 97 && c1 <= 122){
+                    
                 }
-                else if(a[i] != str[j]){
-                    if(a[i] < a[j]){
-                        what = "smaller";
-                    }
-                    else{
-                        what = "bigger";
-                    }
+                else if(c1 >= 65 && c1 <= 90){
+                    c1 = c1 + 32;
                 }
-                i++;
-                j++;
+
+                if(c2 >= 97 && c2 <= 122){
+                    
+                }
+                else if(c2 >= 65 && c2 <= 90){
+                    c2 = c2 + 32;
+                }
+
+                if(c1 != c2){
+                    break;
+                }
             }
-            cout<<what<<endl;
+            if(a[i] == str[j]){
+                cout<<"equal";
+            }
+            else if(a[i] < str[j]){
+                cout<<"smaller";
+            }
+            else{
+                cout<<"greater";
+            }
+            
         }
 };
+
+int main(){
+    String s(25);
+    s.initialize("heyhohihi");
+    s.show();
+    s.compare("HeyHoHIHI");
+}
