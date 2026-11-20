@@ -71,11 +71,24 @@ class String{
             }
             
         }
+
+        string check_palindrome(){
+            int i = 0;
+            int j = length-1;
+            while(i <= j){
+                if(a[i] != a[j]){
+                   return "not Palindrome"; 
+                }
+                i++;
+                j--;
+            }
+            return "Palindrome";
+        }
 };
 
 int main(){
     String s(25);
-    s.initialize("heyhohihi");
+    s.initialize("madam");
     s.show();
-    s.compare("HeyHoHIHI");
+    cout<<s.check_palindrome();
 }
