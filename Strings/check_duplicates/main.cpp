@@ -57,7 +57,7 @@ class String{
 
 int main(){
     String s(25);
-    s.initialize("nodding");
+    s.initialize("nod");
     s.show();
     s.check_duplicates(26);
 }
